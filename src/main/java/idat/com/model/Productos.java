@@ -29,11 +29,6 @@ public class Productos {
 	@OneToMany(mappedBy = "producto")
 	private List<Bodega> bodega =new ArrayList<Bodega>();
 	
-/*	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-	@JoinTable(name = "cliente_producto", joinColumns = @JoinColumn(name = "producto_id", referencedColumnName = "id_producto"), inverseJoinColumns = @JoinColumn(name = "cliente_id", referencedColumnName = "id_cliente"))
-	private List<Cliente> clientes = new ArrayList<Cliente>();
-	*/
-	
 	
 	
 	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
