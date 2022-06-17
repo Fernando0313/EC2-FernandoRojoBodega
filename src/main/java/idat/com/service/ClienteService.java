@@ -12,5 +12,6 @@ public interface ClienteService {
 	public void actualizarCliente(ClienteActualizar cliente);
 	public List<ClienteDTO> listarClientes();
 	public ClienteDTO  buscarCliente(Integer id);
+	public void eliminar(Integer id);
 	
 }
