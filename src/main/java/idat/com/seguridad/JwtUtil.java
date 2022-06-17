@@ -20,17 +20,17 @@ public class JwtUtil {
 
 	private static final long serialVersionUID = -3553931089359371862L;
 
-	public static final long JWT_TOKEN_VALIDITY = 1 * 60 * 60; // Duración - 1 hora
+	public static final long JWT_TOKEN_VALIDITY = 1 * 60 * 60; 
 
 	@Value("${jwt.secret}")
 	private String secret;
 
-	// Recupera el usuario que se envia en el JWT
+
 	public String getUsernameFromToken(String token) {
 		return getClaimFromToken(token, Claims::getSubject);
 	}
 
-	// Recupera la fecha de expiración que se envia en el JWT
+
 	public Date getExpirationDateFromToken(String token) {
 		return getClaimFromToken(token, Claims::getExpiration);
 	}
@@ -40,18 +40,17 @@ public class JwtUtil {
 		return claimsResolver.apply(claims);
 	}
 
-	// Obtiene la clave secreta del JWT
+
 	private Claims getAllClaimsFromToken(String token) {
+		System.out.println(token);
 		return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
 	}
 
-	// Comprueba si el token a caducado
 	private Boolean isTokenExpired(String token) {
 		final Date expiration = getExpirationDateFromToken(token);
 		return expiration.before(new Date());
 	}
 
-	// Genera un token para el usuario
 	public String generateToken(String user) {
 		Map<String, Object> claims = new HashMap<>();
 		return doGenerateToken(claims, user);
@@ -63,8 +62,9 @@ public class JwtUtil {
 				.signWith(SignatureAlgorithm.HS512, secret).compact();
 	}
 
-	// validate token
+
 	public Boolean validateToken(String token, UserDetails userDetails) {
+		System.out.println("tttt");
 		final String username = getUsernameFromToken(token);
 		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
 	}

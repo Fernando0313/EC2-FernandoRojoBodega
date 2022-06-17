@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import idat.com.dto.request.ClienteRegistro;
 import idat.com.dto.request.Login;
 import idat.com.dto.request.UsuarioRegistro;
 import idat.com.dto.response.Token;

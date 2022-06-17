@@ -17,8 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
-//	@Autowired
-//	private PasswordEncoder encriptado;
+
 	@Autowired
 	private UserDetailService service;
 	
@@ -30,20 +29,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.inMemoryAuthentication().withUser("queridoprofesor").password( encriptado().encode("123456") ).roles("ADMIN");
-//		auth.inMemoryAuthentication().withUser("alumno").password( encriptado().encode("123456") ).roles("ALUMNO");
 		auth.userDetailsService(service).passwordEncoder(encriptado());
 	}
 
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-//		http.authorizeRequests()
-//			.antMatchers("/producto/v1/*").access("hasRole('USER')")
-//			.and()
-//			.httpBasic()
-//			.and()
-//			.csrf().disable();
+
 		
 		http.authorizeRequests()
 			.antMatchers("/api/v1/usuario/**").permitAll()
