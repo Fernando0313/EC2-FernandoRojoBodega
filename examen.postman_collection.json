@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "c6f596ef-35a8-43b9-ab23-71afdd9cd42d",
+		"name": "examen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14568300"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreDTO\":\"fernando\",\r\n    \"direccionDTO\":\"rimac\",\r\n    \"dniDTO\":\"74829850\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_local}}/api/v1/registrar",
+							"host": [
+								"{{url_local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_local}}/api/v1/cliente/listar/1",
+							"host": [
+								"{{url_local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cliente",
+								"listar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_local}}/api/v1/cliente/listar",
+							"host": [
+								"{{url_local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cliente",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n       \"nombreDTO\":\"fernando\",\r\n    \"direccionDTO\":\"rimac\",\r\n    \"dniDTO\":\"74829851\",\r\n    \"idClienteDTO\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_local}}/api/v1/actualizar",
+							"host": [
+								"{{url_local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"actualizar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url_local}}/api/v1/eliminar/1",
+							"host": [
+								"{{url_local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"eliminar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_local",
+			"value": "http://localhost:9987",
+			"type": "string"
+		}
+	]
+}
